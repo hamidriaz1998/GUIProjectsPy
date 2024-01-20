@@ -47,6 +47,11 @@ def countDown(count):
         window.after(1000, countDown, count - 1)
     else:
         startTimer()
+        marks = ""
+        workSessions = floor(reps / 2)
+        for _ in range(workSessions):
+            marks += "✓"
+        checkMarks.config(text=marks)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -77,5 +82,8 @@ startButton.grid(column=0, row=2)
 
 resetButton = Button(text="reset")
 resetButton.grid(column=2, row=2)
+
+checkMarks = Label(text="✓", fg=GREEN, bg=YELLOW)
+checkMarks.grid(columns=3, row=3)
 
 window.mainloop()
